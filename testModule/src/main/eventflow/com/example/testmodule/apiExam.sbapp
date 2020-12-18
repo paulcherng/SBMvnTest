@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<modify version="10.5.0_ccb32e4ca924f05a0d59933f58d9d573d97e7fa1">
+    <add>
+        <annotations>
+            <annotation name="hygienic"/>
+        </annotations>
+        <type-metadata>
+            <param name="type" value="module"/>
+            <param name="fully-qualified-name" value="com.example.testmodule.apiExam"/>
+        </type-metadata>
+        <memory-model-settings/>
+        <dynamic-variables/>
+        <stream name="InputStream">
+            <schema>
+                <field name="from" type="string"/>
+                <field name="to" type="string"/>
+            </schema>
+        </stream>
+        <box name="Map" type="map">
+            <input port="1" stream="InputStream"/>
+            <output port="1" stream="out:Map_1"/>
+            <target-list>
+                <item name="input" selection="all"/>
+                <expressions>
+                    <include field="subject">"test"</include>
+                    <include field="body">"testString"</include>
+                    <include field="contentType">"text/plain"</include>
+                </expressions>
+            </target-list>
+        </box>
+        <box name="OutputAdapter" type="outputadapter">
+            <input port="1" stream="out:Map_1"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.adapter.emailsender.EmailSender"/>
+            <param name="AttachmentsField" value=""/>
+            <param name="Bcc" value=""/>
+            <param name="BccContains" value="Static text"/>
+            <param name="Body" value="body"/>
+            <param name="BodyContains" value="Schema field name"/>
+            <param name="Cc" value=""/>
+            <param name="CcContains" value="Static text"/>
+            <param name="ContentType" value="contentType"/>
+            <param name="ContentTypeContains" value="Schema field name"/>
+            <param name="EnableSMTPDebugging" value="false"/>
+            <param name="FromContains" value="Schema field name"/>
+            <param name="FromValue" value="from"/>
+            <param name="OutgoingMessageQueueCapacity" value="100"/>
+            <param name="Password" value="1qazXSW@4358"/>
+            <param name="ReplyTo" value=""/>
+            <param name="ReplyToContains" value="Static text"/>
+            <param name="SmtpClient" value=""/>
+            <param name="SmtpPort" value="25"/>
+            <param name="SmtpServer" value="ms2.iisigroup.com"/>
+            <param name="Subject" value="subject"/>
+            <param name="SubjectContains" value="Schema field name"/>
+            <param name="ThrottleErrorMessages" value="false"/>
+            <param name="To" value="to"/>
+            <param name="ToContains" value="Schema field name"/>
+            <param name="UseAuthentication" value="true"/>
+            <param name="UseSSL" value="false"/>
+            <param name="Username" value="mailtester"/>
+            <param name="XHeadersTagsContains" value="Static text"/>
+            <param name="XHeadersValuesContains" value="Schema field name"/>
+            <param name="enableEventPort" value="false"/>
+            <param name="eventOnSendSuccess" value="false"/>
+            <param name="logLevel" value="INFO"/>
+        </box>
+    </add>
+</modify>
