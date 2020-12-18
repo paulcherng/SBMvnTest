@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbfs:Simulation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:sbfs="http://www.streambase.com/schemas/feedsim/02/SBFS">
+  <SimStreams Name="propInput">
+    <ProcessingOptions DataRatePerSecond="1.0" DataGenerationMethod="Custom"/>
+    <Schema>
+      <Fields Name="propName" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString" UseRandomSize="true" BlobSize="1"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="propValue" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString" UseRandomSize="true" BlobMinSize="4"/>
+        <DataSourceMapping/>
+      </Fields>
+    </Schema>
+  </SimStreams>
+</sbfs:Simulation>
